@@ -1,0 +1,4 @@
+- installiamo discord e lo importiamo  
+- dobbiamo mettere un prefisso  
+- facciamo delle funzioni per i comandi  
+- dobbiamo aggiungere anche il token
