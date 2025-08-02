@@ -1,26 +1,29 @@
-import discord
-from discord.ext import commands
+import discord 
+from password_funzione import gen_pass
 
+# la variabile intents contiene i permessi al bot
 intents = discord.Intents.default()
+# abilita il permesso a leggere i contenuti dei messaggi
 intents.message_content = True
+# crea un bot e passa gli indents
+client = discord.Client(intents=intents)
 
-bot = commands.Bot(command_prefix='$', intents=intents)
-
-@bot.event
+@client.event
 async def on_ready():
-    print(f'Hai fatto l\'accesso come {bot.user}')
+    print(f'Abbiamo fatto l\'accesso come {client.user}')
 
-@bot.command()
-async def ciao(ctx):
-    await ctx.send(f'Ciao! Sono un bot {bot.user}!')
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    if message.content.startswith('$ciao'):
+        await message.channel.send("Ciao!")
+    elif message.content.startswith('$arrivederci'):
+        await message.channel.send("\U0001f642")
+    elif message.content.startswith("$pass"):
+        await message.channel.send(gen_pass(5))
+    else:
+        
+        await message.channel.send(message.content)
 
-@bot.command()
-async def heh(ctx, count_heh = 5):
-    await ctx.send("he" * count_heh)
-
-@bot.command()
-async def add(ctx, left: int, right: int):
-    """Adds two numbers together."""
-    await ctx.send(left + right)
-
-bot.run("INSERISCI IL TUO TOKEN")
+client.run("MTM5MzUyODIxNDk1NzA2NDI3Mg.GQ6ibQ.ExLor6mC78WWgW05JEmRGIQPs5LYLo1jKrxzGw")
