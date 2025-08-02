@@ -64,4 +64,5 @@ async def anime(ctx):
         picture = discord.File(f)
     await ctx.send(file=picture)
 
-bot.run("MTM5MzUyODIxNDk1NzA2NDI3Mg.GQ6ibQ.ExLor6mC78WWgW05JEmRGIQPs5LYLo1jKrxzGw")
+
+bot.run("IL TUO TOKEN")
