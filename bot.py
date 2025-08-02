@@ -26,5 +26,4 @@ async def on_message(message):
         
         await message.channel.send(message.content)
 
-
-client.run("TOKEN")
+client.run("MTM5MzUyODIxNDk1NzA2NDI3Mg.GQ6ibQ.ExLor6mC78WWgW05JEmRGIQPs5LYLo1jKrxzGw")
